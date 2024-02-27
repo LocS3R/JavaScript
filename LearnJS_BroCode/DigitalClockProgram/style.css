@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./assets/images/rain.jpg");
+}
+
+.myApp {
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(16px) saturate(179%);
+  -webkit-backdrop-filter: blur(16px) saturate(179%);
+  background-color: rgba(157, 157, 158, 0.45);
+}
+
+#clock {
+  font-size: 10.5rem;
+  font-weight: 700;
+}

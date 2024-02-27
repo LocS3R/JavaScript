@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spaced Repetition System</title>
+  </head>
+  <body>
+    <div id="app">
+      <button onclick="addWord()">Add Word</button>
+      <button onclick="reviewWords()">Review Words</button>
+    </div>
+
+    <script>
+      const vocabulary = [];
+
+      function addWord() {
+        vocabulary.push({
+          word: "word1",
+          meaning: "mean1",
+          repetitions: 0,
+          interval: 1,
+        });
+        vocabulary.push({
+          word: "word2",
+          meaning: "mean2",
+          repetitions: 0,
+          interval: 1,
+        });
+        vocabulary.push({
+          word: "word3",
+          meaning: "mean3",
+          repetitions: 0,
+          interval: 1,
+        });
+        vocabulary.push({
+          word: "word4",
+          meaning: "mean4",
+          repetitions: 0,
+          interval: 1,
+        });
+      }
+
+      function reviewWords() {
+        const now = Date.now();
+        console.log(new Date(now).getDate());
+
+        const dueForReview = vocabulary.filter(
+          (word) =>
+            word.repetitions === 0 ||
+            word.interval <= 0 ||
+            word.nextReview <= now ||
+            new Date(word.nextReview).getDate() <= new Date(now).getDate(),
+        );
+
+        if (dueForReview.length > 0) {
+          const wordToReview =
+            dueForReview[Math.floor(Math.random() * dueForReview.length)];
+
+          const response = prompt(`Recall: ${wordToReview.word}`);
+
+          if (response !== null) {
+            // Simulate reviewing the word
+            console.log(
+              "Reviewing:",
+              wordToReview.word,
+              "-",
+              wordToReview.meaning,
+            );
+
+            // Update review statistics based on correctness of recall
+            if (
+              response.trim().toLowerCase() ===
+              wordToReview.meaning.toLowerCase()
+            ) {
+              wordToReview.repetitions++;
+              if (wordToReview.repetitions >= 2) {
+                wordToReview.repetitions = 60;
+              }
+            } else {
+              wordToReview.repetitions = 0;
+            }
+
+            // Update next review time
+            wordToReview.nextReview =
+              now + wordToReview.repetitions * 24 * 60 * 1000;
+
+            console.log(
+              "Next review scheduled on:",
+              new Date(wordToReview.nextReview),
+            );
+          }
+        } else {
+          console.log("No words due for review.");
+        }
+      }
+    </script>
+  </body>
+</html>

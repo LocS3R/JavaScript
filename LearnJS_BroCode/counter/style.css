@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 10rem;
+}
+.counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.counter-actions button {
+  font-size: 2rem;
+  padding: 0.5rem;
+  border: 0.2rem solid #000;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.counter-actions button:hover {
+  background-color: #e5e5e5;
+}
+.counter-actions button:active {
+  background-color: #e5e5e5;
+}
+span#counter-number {
+  font-size: 10rem;
+  text-align: center;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

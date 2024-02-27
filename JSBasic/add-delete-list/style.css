@@ -1,0 +1,80 @@
+.app {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app-main {
+  margin-top: 20px;
+  background-image: url(https://m.media-amazon.com/images/I/51Zvk7Mm2EL._AC_UF1000,1000_QL80_.jpg);
+  padding: 50px 20px 60px 20px;
+  width: 50rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+ul > li {
+  list-style-type: none;
+  position: relative;
+}
+li {
+  margin-bottom: 30px;
+}
+input[type="text"] {
+  position: absolute;
+  left: 55px;
+  font-size: 2rem;
+  top: -10px;
+  background-color: transparent;
+  ouline: none;
+  border-bottom: 1px solid red;
+}
+.addTask {
+  position: absolute;
+  bottom: -20px;
+  align-self: center;
+  padding: 10px;
+  background: #dc6cf0;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.btnDelete {
+  position: absolute;
+  right: 0;
+  padding: 5px;
+  border-radius: 5px;
+  background: red;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+.list-item-label {
+  font-size: 20px;
+  position: absolute;
+  left: 60px;
+  color: #000;
+}
+.list-item-checkbox {
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+}
+.list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.list-item .list-item-checkbox:checked ~ .list-item-label {
+  text-decoration: line-through;
+}
+
+.list-item .list-item-checkbox:checked ~ .btnDelete {
+  display: block;
+}
